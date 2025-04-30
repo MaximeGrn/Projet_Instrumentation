@@ -1,0 +1,608 @@
+[
+    {
+        "id": "f1a0b6f7b9d8c001",
+        "type": "tab",
+        "label": "Nano Dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e0a366c2cbb0d1fa",
+        "type": "mqtt in",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "nano1/telemetry",
+        "topic": "nano1/telemetry",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "b037af5b02fd3283",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "af2e6b21eab264ab",
+                "10d498e5de829971"
+            ]
+        ]
+    },
+    {
+        "id": "af2e6b21eab264ab",
+        "type": "json",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "9d9b206ffead1c60",
+                "5fbe5e7eb390649b",
+                "fb5423dd4ae1379a"
+            ]
+        ]
+    },
+    {
+        "id": "10d498e5de829971",
+        "type": "debug",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "nano1 raw",
+        "active": true,
+        "tosidebar": true,
+        "complete": "true",
+        "targetType": "full",
+        "x": 300,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9d9b206ffead1c60",
+        "type": "change",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Voltage",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Voltage (V)",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.voltage",
+                "tot": "msg"
+            }
+        ],
+        "x": 520,
+        "y": 40,
+        "wires": [
+            [
+                "29e0605b74f1bd24",
+                "60aba6d218d62b78"
+            ]
+        ]
+    },
+    {
+        "id": "5fbe5e7eb390649b",
+        "type": "change",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Current",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Current (A)",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.current",
+                "tot": "msg"
+            }
+        ],
+        "x": 520,
+        "y": 80,
+        "wires": [
+            [
+                "d7bf3e4de9c5b95d",
+                "60aba6d218d62b78"
+            ]
+        ]
+    },
+    {
+        "id": "fb5423dd4ae1379a",
+        "type": "change",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Lux",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Lux (lx)",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.lux",
+                "tot": "msg"
+            }
+        ],
+        "x": 510,
+        "y": 120,
+        "wires": [
+            [
+                "7a651f00eaddb3c0",
+                "60aba6d218d62b78"
+            ]
+        ]
+    },
+    {
+        "id": "4b01b2c6506962aa",
+        "type": "mqtt in",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "nano2/telemetry",
+        "topic": "nano2/telemetry",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "b037af5b02fd3283",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "46b8ac25d2725b7d",
+                "f9dba96736889f9a"
+            ]
+        ]
+    },
+    {
+        "id": "46b8ac25d2725b7d",
+        "type": "json",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "54e5d605e0c7fd06",
+                "2ce6222d96e4c3b2",
+                "cfe57ee3b8d5d172",
+                "8b1223634756a5f9",
+                "ef37d6e7c7c7a84b"
+            ]
+        ]
+    },
+    {
+        "id": "f9dba96736889f9a",
+        "type": "debug",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "nano2 raw",
+        "active": true,
+        "tosidebar": true,
+        "complete": "true",
+        "targetType": "full",
+        "x": 300,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "54e5d605e0c7fd06",
+        "type": "change",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Temp °C",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Temp (°C)",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temp_air",
+                "tot": "msg"
+            }
+        ],
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "445e5db4f1a7f5cb",
+                "a0754b21347c0138"
+            ]
+        ]
+    },
+    {
+        "id": "2ce6222d96e4c3b2",
+        "type": "change",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Hum %",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Hum (%)",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.hum_air",
+                "tot": "msg"
+            }
+        ],
+        "x": 540,
+        "y": 240,
+        "wires": [
+            [
+                "3bafd50bccb0dd43",
+                "a0754b21347c0138"
+            ]
+        ]
+    },
+    {
+        "id": "cfe57ee3b8d5d172",
+        "type": "change",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Lux2",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Lux N2",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.lux",
+                "tot": "msg"
+            }
+        ],
+        "x": 540,
+        "y": 280,
+        "wires": [
+            [
+                "22d31820909829d2",
+                "a0754b21347c0138"
+            ]
+        ]
+    },
+{
+    "id": "8b1223634756a5f9",
+    "type": "change",
+    "z": "f1a0b6f7b9d8c001",
+    "name": "Hum Sol %",
+    "rules": [
+        {
+            "t": "set",
+            "p": "topic",
+            "pt": "msg",
+            "to": "Hum Sol (%)",
+            "tot": "str"
+        },
+        {
+            "t": "set",
+            "p": "payload",
+            "pt": "msg",
+            "to": "payload.hum_sol",
+            "tot": "msg"
+        }
+    ],
+    "x": 540,
+    "y": 320,
+    "wires": [
+        [ "bfb071ad2e4fdf51", "a0754b21347c0138" ]
+    ]
+},
+
+    {
+        "id": "ef37d6e7c7c7a84b",
+        "type": "change",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Prox 1/2/3",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Prox 1/2/3",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$string(payload.prox1) & \"/\" & $string(payload.prox2) & \"/\" & $string(payload.prox3)",
+                "tot": "jsonata"
+            }
+        ],
+        "x": 550,
+        "y": 360,
+        "wires": [
+            [
+                "7dda6283d868e6ff"
+            ]
+        ]
+    },
+    {
+        "id": "29e0605b74f1bd24",
+        "type": "ui_gauge",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Voltage",
+        "group": "fa6902ad1e9e2dfe",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "label": "V",
+        "format": "{{value|number:2}}",
+        "min": 0,
+        "max": 15,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 0,
+        "y": 0,
+        "wires": []
+    },
+    {
+        "id": "d7bf3e4de9c5b95d",
+        "type": "ui_gauge",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Current",
+        "group": "fa6902ad1e9e2dfe",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "label": "A",
+        "format": "{{value|number:2}}",
+        "min": -5,
+        "max": 5,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 0,
+        "y": 0,
+        "wires": []
+    },
+    {
+        "id": "7a651f00eaddb3c0",
+        "type": "ui_gauge",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Lux",
+        "group": "fa6902ad1e9e2dfe",
+        "order": 3,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "label": "lx",
+        "format": "{{value|number:0}}",
+        "min": 0,
+        "max": 1000,
+        "colors": [
+            "#555555",
+            "#e6e600",
+            "#ff0000"
+        ],
+        "x": 0,
+        "y": 0,
+        "wires": []
+    },
+    {
+        "id": "60aba6d218d62b78",
+        "type": "ui_chart",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "N1 chart",
+        "group": "fa6902ad1e9e2dfe",
+        "order": 4,
+        "width": 12,
+        "height": 5,
+        "label": "Nano1",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "outputs": 1,
+        "x": 0,
+        "y": 0,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "445e5db4f1a7f5cb",
+        "type": "ui_gauge",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Temp",
+        "group": "1fc6517c155dbf42",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "label": "°C",
+        "format": "{{value|number:1}}",
+        "min": 0,
+        "max": 50,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 0,
+        "y": 0,
+        "wires": []
+    },
+    {
+        "id": "3bafd50bccb0dd43",
+        "type": "ui_gauge",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Hum",
+        "group": "1fc6517c155dbf42",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "label": "%",
+        "format": "{{value|number:0}}",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 0,
+        "y": 0,
+        "wires": []
+    },
+    {
+        "id": "22d31820909829d2",
+        "type": "ui_gauge",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "Lux2",
+        "group": "1fc6517c155dbf42",
+        "order": 3,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "label": "lx",
+        "format": "{{value|number:0}}",
+        "min": 0,
+        "max": 1000,
+        "colors": [
+            "#555555",
+            "#e6e600",
+            "#ff0000"
+        ],
+        "x": 0,
+        "y": 0,
+        "wires": []
+    },
+{
+    "id": "bfb071ad2e4fdf51",
+    "type": "ui_gauge",
+    "z": "f1a0b6f7b9d8c001",
+    "name": "Hum Sol %",
+    "group": "1fc6517c155dbf42",
+    "order": 4,
+    "width": 4,
+    "height": 4,
+    "gtype": "gage",
+    "label": "%",
+    "format": "{{value|number:0}}",
+    "min": 0,
+    "max": 100,
+    "colors": [ "#00b500", "#e6e600", "#ca3838" ],
+    "x": 0,
+    "y": 0,
+    "wires": []
+},
+    {
+        "id": "7dda6283d868e6ff",
+        "type": "ui_text",
+        "z": "f1a0b6f7b9d8c001",
+        "group": "1fc6517c155dbf42",
+        "order": 5,
+        "label": "Prox 1/2/3",
+        "format": "{{msg.payload}}",
+        "x": 0,
+        "y": 0,
+        "wires": []
+    },
+    {
+        "id": "a0754b21347c0138",
+        "type": "ui_chart",
+        "z": "f1a0b6f7b9d8c001",
+        "name": "N2 chart",
+        "group": "1fc6517c155dbf42",
+        "order": 6,
+        "width": 12,
+        "height": 5,
+        "label": "Nano2",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "outputs": 1,
+        "x": 0,
+        "y": 0,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b037af5b02fd3283",
+        "type": "mqtt-broker",
+        "name": "Mosquitto-Local",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true
+    },
+    {
+        "id": "fa6902ad1e9e2dfe",
+        "type": "ui_group",
+        "name": "Nano1",
+        "tab": "c3e9d2e3e60e1cc3",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "1fc6517c155dbf42",
+        "type": "ui_group",
+        "name": "Nano2",
+        "tab": "c3e9d2e3e60e1cc3",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "c3e9d2e3e60e1cc3",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
