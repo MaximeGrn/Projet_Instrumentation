@@ -7,9 +7,9 @@
 #include <DHT.h>
 
 /*********  Wi-Fi / MQTT  *********/
-const char* ssid       = "Freeboxe";
-const char* password   = "88888888";
-const char* mqttServer = "192.168.26.23";   // IP de ton Mac
+const char* ssid       = "Serveur_instrumentation";
+const char* password   = "Eseo2025";
+const char* mqttServer = "10.42.0.1";   // IP de ton Mac
 const int   mqttPort   = 1883;
 
 WiFiClient wifi;
